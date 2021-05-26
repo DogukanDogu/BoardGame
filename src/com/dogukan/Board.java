@@ -17,7 +17,11 @@ public class Board {
     }
 
     public void calculateThreatsOfHorseAndElephant(BoardCell[][] chessBoard){
-
+        for (int k = 0; k < chessBoard.length; k++) {
+            for (int r = 0; r < chessBoard.length; r++) {
+                
+            }
+        }
     }
 
     public void calculateAllPointsOfWhiteStones(BoardCell[][] chessBoard){
