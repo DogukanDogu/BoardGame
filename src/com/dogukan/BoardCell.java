@@ -1,7 +1,5 @@
 package com.dogukan;
 
-import java.util.HashMap;
-
 public class BoardCell {
     private String stoneName;
     private String stoneColor;

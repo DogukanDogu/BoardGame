@@ -2,6 +2,7 @@ package com.dogukan;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Board {
@@ -16,12 +17,35 @@ public class Board {
         }
     }
 
-    public void calculateThreatsOfHorseAndElephant(BoardCell[][] chessBoard){
+    public void calculateAndDisplayThreatsOfHorseAndElephant(BoardCell[][] chessBoard){
+        int whiteThreatCount = 0;
+        int blackThreatCount = 0;
+        HashMap<String,Integer> mapReturn = new HashMap<String,Integer>();
+
         for (int k = 0; k < chessBoard.length; k++) {
             for (int r = 0; r < chessBoard.length; r++) {
-                
+                if (k != 0 && r != 0){
+                    if (chessBoard[k-1][r].getStoneColor().equals(chessBoard[k][r].getStoneColor())){
+                        if (chessBoard[k][r].getStoneColor().equals("b") &&
+                                chessBoard[k][r].getStoneCode().equals("a")){
+                            whiteThreatCount++;
+                        }
+
+                        if (chessBoard[k][r].getStoneColor().equals("s") &&
+                                chessBoard[k][r].getStoneCode().equals("f")){
+                            blackThreatCount++;
+                        }
+                    }
+                }
             }
         }
+
+        mapReturn.put("BLACKSCOUNT",blackThreatCount);
+        mapReturn.put("WHITESCOUNT",whiteThreatCount);
+
+        System.out.println("           ");
+        System.out.println("Siyah : " + mapReturn.get("BLACKSCOUNT") + "\n" +
+                "Beyaz :" + mapReturn.get("WHITESCOUNT"));
     }
 
     public void calculateAllPointsOfWhiteStones(BoardCell[][] chessBoard){

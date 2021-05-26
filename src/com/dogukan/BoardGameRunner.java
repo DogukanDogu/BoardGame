@@ -5,15 +5,24 @@ import java.util.*;
 
 public class BoardGameRunner {
 
+    /* INITIALIZING THE FILE PATH  */
     private static String FILE_NAME = "C:\\BoardGame\\src\\files\\board1.txt";
 
     public static void main(String[] args) {
+        /* CREATING A 8 X 8 MATRIX WHICH REPRESENTS CHESS BOARD*/
         BoardCell[][] chessBoard = new BoardCell[8][8];
+        /* CREATING BOARD OBJECT WHICH REPRESENTS CHESS BOARD PLAYS */
         Board board = new Board();
+        /* READING A CHESS PLAY FILES */
         board.readFile(chessBoard,FILE_NAME);
+        /* DISPLAYING CHESS BOARD*/
         board.display(chessBoard);
+        /* CALCULATE ALL BLACK CHESS STONES POINTS */
         board.calculateAllPointsOfBlackStones(chessBoard);
+        /* CALCULATE ALL WHITE CHESS STONES POINTS */
         board.calculateAllPointsOfWhiteStones(chessBoard);
+        /* CALCULATE THREATS OF CHESS STONES POINTS */
+        board.calculateAndDisplayThreatsOfHorseAndElephant(chessBoard);
     }
 
 }
