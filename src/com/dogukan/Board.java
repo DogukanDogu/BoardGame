@@ -1,7 +1,6 @@
 package com.dogukan;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -17,7 +16,7 @@ public class Board {
         }
     }
 
-    public void calculateAndDisplayThreatsOfHorseAndElephant(BoardCell[][] chessBoard){
+    public void calculateAndDisplayThreatsOfHorseAndElephant(BoardCell[][] chessBoard,String fileName,String filePath){
         int whiteThreatCount = 0;
         int blackThreatCount = 0;
         HashMap<String,Integer> mapReturn = new HashMap<String,Integer>();
@@ -46,7 +45,23 @@ public class Board {
         System.out.println("           ");
         System.out.println("Siyah : " + mapReturn.get("BLACKSCOUNT") + "\n" +
                 "Beyaz :" + mapReturn.get("WHITESCOUNT"));
+
+       StringBuffer sbResult = new StringBuffer();
+
+        sbResult.append("Tahta Dosya Adı           Sonuçlar \n");
+        sbResult.append(fileName + "  Siyah : " + mapReturn.get("BLACKSCOUNT") + "\n");
+        sbResult.append(fileName + "  Beyaz : " + mapReturn.get("WHITESCOUNT") + "\n");
+
+        try {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName));
+            writer.write(sbResult.toString());
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
+
 
     public void calculateAllPointsOfWhiteStones(BoardCell[][] chessBoard){
         int totalSumWhites = 0;
