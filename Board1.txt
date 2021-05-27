@@ -1,0 +1,3 @@
+Tahta Dosya Adı           Sonuçlar 
+Board1.txt  Siyah : 0
+Board1.txt  Beyaz : 0
