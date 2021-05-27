@@ -6,7 +6,7 @@ import java.util.*;
 public class BoardGameRunner {
 
     /* INITIALIZING THE FILE PATH  */
-    private static String FILE_PATH = "C:\\BoardGame\\src\\files\\board1.txt";
+    private static String FILE_PATH = "C:\\BoardGame\\src\\files\\board3.txt";
     private static String FILE_NAME = "Board1.txt";
 
     public static void main(String[] args) {
